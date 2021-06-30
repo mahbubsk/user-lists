@@ -33,6 +33,8 @@ function Product() {
 
     return (
         <div>
+            <h2>Product List</h2>
+
             <input
                 type="text"
                 value={productName}

@@ -34,8 +34,7 @@ function User() {
     
 
     return (
-        <div style={{display:"flex", justifyContent: "space-around"}}>
-
+        <div>
             <div>
               <h2>User List</h2>
                 <input
@@ -51,15 +50,7 @@ function User() {
                 <UserItem state={state}/>
             </div>
 
-            <div>
-                <h2>Comment List</h2>
-                <Comment/>
-            </div>
-
-            <div>
-                <h2>Product List</h2>
-                <Product/>
-            </div>
+            
         </div>
     )
 }

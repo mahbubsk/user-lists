@@ -33,6 +33,7 @@ function Comment() {
 
     return (
         <div>
+            <h2>Comment List</h2>
             <input
                 type="text"
                 value={commentText}
