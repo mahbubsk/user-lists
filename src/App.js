@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 import User              from './Components/User';
 import Comment           from './Components/Comment';
@@ -11,7 +11,7 @@ import './App.css';
 function App() {
 
   return (
-    <div style={{padding:"3rem",display:"flex", justifyContent: "space-around"}}>
+    <div style={{padding:"3rem",display:"flex", justifyContent: "space-between"}}>
         <User/>
         <Comment/>
         <Product/>
