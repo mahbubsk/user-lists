@@ -1,27 +1,31 @@
-import React   from 'react'
-import { useDispatch } from 'react-redux';
-import {MdModeEdit} from 'react-icons/md';
+import React from 'react'
+import {useSelector, useDispatch} from 'react-redux';
 import {AiFillDelete} from 'react-icons/ai';
-import {GrFavorite} from 'react-icons/gr';
-import {FaRegUserCircle} from 'react-icons/fa'; 
+import {FaRegUserCircle} from 'react-icons/fa';
 
+function Favourites() {
 
-
-function UserItem({state,deleteHandler,setEditObj}) { 
     const dispatch = useDispatch();
-    const favouritHandler = (user) =>{
+    const state = useSelector(function(state) {
+        return state.user;
+    });
+    console.log(state);
+
+    const favouriteDeleteHandler = (favourite) => {
         const action = {
-            type:"ADD_TO_FAVOURITE",
-            payload:user
+            type:"DELETE_FROM_FAVOURITE",
+            payload:favourite
         }
-        
+
         dispatch(action);
     }
 
     return (
         <div>
+            <h2>Favourites List</h2>
             {
-                state.allUser.map(user=>{
+                state.allFavourites.length ? 
+                state.allFavourites.map(favourite=>{
                     return(
                         <div 
                             style={{
@@ -37,34 +41,30 @@ function UserItem({state,deleteHandler,setEditObj}) {
                                         alignSelf: 'center'
                                     }} /> 
                                 <p style={{margin:"10px",fontWeight:'600',fontSize:'16px'}}>
-                                    {user && user.name}
+                                    {favourite && favourite.name}
                                 </p>
                             </div>
 
                             <div style={{
                                 display:'flex', alignItems:'center',
-                                justifyContent:'space-between', width:'22%', 
-                                marginRight: '5px'
+                                justifyContent:'space-between',
+                                marginRight:'5px' 
                             }}>
-                                <MdModeEdit 
-                                    style={{cursor:"pointer"}}
-                                    onClick={()=>setEditObj(user)}    
-                                />
+                                
                                 <AiFillDelete 
                                     style={{cursor:"pointer"}}
-                                    onClick={()=>deleteHandler(user)}
-                                />
-                                <GrFavorite 
-                                    style={{cursor:"pointer"}}
-                                    onClick={()=>favouritHandler(user)}
+                                    onClick={()=>favouriteDeleteHandler(favourite)}
                                 />
                             </div>
                         </div>
                     )
-                })
-            }
+                }) :
+                
+                <h3 style={{color:'#ddd'}}>user list is empty</h3>
+
+            } 
         </div>
     )
 }
 
-export default UserItem
+export default Favourites
