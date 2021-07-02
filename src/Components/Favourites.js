@@ -21,48 +21,51 @@ function Favourites() {
     }
 
     return (
-        <div>
-            <h2>Favourites List</h2>
-            {
-                state.allFavourites.length ? 
-                state.allFavourites.map(favourite=>{
-                    return(
-                        <div 
-                            style={{
-                                display:"flex",alignItems: "center", 
-                                justifyContent:"space-between", 
-                                backgroundColor:'rgb(211 211 211)',
-                                marginTop:'20px',padding:'10px',
-                                width:'18rem',borderRadius:'5px'
-                            }}>
-                            <div style={{display:'flex'}}>
-                                <FaRegUserCircle width="30px" height="30px"
+        <div style={{width:'40%'}}> 
+            { 
+                state.allFavourites.length > 0 && 
+                <div>
+                    <h2>Favourites List</h2>
+                    {
+                        
+                        state.allFavourites.map(favourite=>{
+                            return(
+                                <div 
                                     style={{
-                                        alignSelf: 'center'
-                                    }} /> 
-                                <p style={{margin:"10px",fontWeight:'600',fontSize:'16px'}}>
-                                    {favourite && favourite.name}
-                                </p>
-                            </div>
+                                        display:"flex",alignItems: "center", 
+                                        justifyContent:"space-between", 
+                                        backgroundColor:'rgba(49, 151, 149,0.3)',
+                                        marginTop:'20px',padding:'10px',
+                                        width:'18rem',borderRadius:'5px',
+                                        
+                                    }}>
+                                    <div style={{display:'flex'}}>
+                                        <FaRegUserCircle width="30px" height="30px"
+                                            style={{
+                                                alignSelf: 'center'
+                                            }} /> 
+                                        <p style={{margin:"10px",fontWeight:'600',fontSize:'16px'}}>
+                                            {favourite && favourite.name}
+                                        </p>
+                                    </div>
 
-                            <div style={{
-                                display:'flex', alignItems:'center',
-                                justifyContent:'space-between',
-                                marginRight:'5px' 
-                            }}>
-                                
-                                <AiFillDelete 
-                                    style={{cursor:"pointer"}}
-                                    onClick={()=>favouriteDeleteHandler(favourite)}
-                                />
-                            </div>
-                        </div>
-                    )
-                }) :
-                
-                <h3 style={{color:'#ddd'}}>user list is empty</h3>
-
-            } 
+                                    <div style={{
+                                        display:'flex', alignItems:'center',
+                                        justifyContent:'space-between',
+                                        marginRight:'5px' 
+                                    }}>
+                                        
+                                        <AiFillDelete 
+                                            style={{cursor:"pointer"}}
+                                            onClick={()=>favouriteDeleteHandler(favourite)}
+                                        />
+                                    </div>
+                                </div>
+                            )
+                        })
+                    } 
+                </div>
+            }
         </div>
     )
 }

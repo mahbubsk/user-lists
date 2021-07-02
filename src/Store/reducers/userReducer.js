@@ -16,8 +16,8 @@ const userReducer = (state=initialState, action) => {
             }
         
         case "DELETE_USER":
-            const filterdArray =  state.allUser.filter(user=>user.id!==action.payload.id);
-            const newFavArray =  state.allFavourites.filter(fav=>fav.id!==action.payload.id);
+            const filterdArray =  state.allUser.filter(user=>user.id !== action.payload.id);
+            const newFavArray =  state.allFavourites.filter(fav=>fav.id !== action.payload.id);
 
             return {
                 ...state,
@@ -28,7 +28,8 @@ const userReducer = (state=initialState, action) => {
             }
 
         case "UPDATE_USER":
-            const updateArray = state.allUser.map(user => { 
+            const updateArray = state.allUser.map(user => {
+
                 if(user.id === action.payload.id) { 
                     return action.payload; 
                 } 
@@ -37,14 +38,32 @@ const userReducer = (state=initialState, action) => {
                 } 
             }) 
 
+            const favArray = state.allFavourites.map(fav => {
+                 
+                if(fav.id === action.payload.id) { 
+                    return action.payload; 
+                } 
+                else { 
+                    return fav;
+                } 
+            }) 
+
             return {
                 ...state,
                 allUser:updateArray,
-                length:updateArray.length
+                allFavourites:favArray,
+                length:updateArray.length,
+                favouriteLength:favArray.length
             }
         case "ADD_TO_FAVOURITE":
-            let allFavourites = state.allFavourites.concat(action.payload);
+            for (let i = 0; i < state.allFavourites.length; i++) {
+                if(state.allFavourites[i].id === action.payload.id){
+                    return state;
+                }
+            }
 
+            let allFavourites = state.allFavourites.concat(action.payload);
+            
             return {
                 ...state,
                 allFavourites,
@@ -62,6 +81,23 @@ const userReducer = (state=initialState, action) => {
                 allFavourites:deleteFavouriteArr,
                 favouriteLength:deleteFavouriteArr.length
             }
+        case "MODAL":
+            const newModalState = action.payload;
+            return{
+                ...state,
+                modal:newModalState
+            }
+            break;
+
+        case "MODAL_CANCEL":
+            const cancelModal = action.payload;
+            return{
+                ...state,
+                modal:cancelModal
+            }
+            break;
+
+            
     
         default:
             return state; 

@@ -1,38 +1,86 @@
 .App {
   text-align: center;
+  position: relative;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.user-list-wrap{
+  background-color: #fff;
+  width:74% !important;
+  height:500px !important;
+  padding:10px !important;
+  margin-top: 30px !important;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 -1px 3px rgba(0, 0, 0, 0.1); 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.list-item{
+  transition:all 0.3s;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.list-item:hover{
+  background-color: rgba(49, 151, 149,0.05);
+}
+.list-item:hover .icons-warpper{
+  font-size: 20px !important;
+} 
+
+.modal-background{
+  background: rgba(78, 70, 70, 0.466);
+  backdrop-filter: blur(2px);
+  width:100vw;
+  height: 100vh;
+  position: absolute;
+  top:0;
+  left:0;
 }
 
-.App-link {
-  color: #61dafb;
+.modal{
+  background-color:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:15rem;
+  height:15rem;
+  position:relative;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  z-index: 10;
+  border-radius:20px;
+  border:2px solid #319795;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn{
+  outline: none;
+    border:none;
+    padding:5px 10px;
+    font-size:16px;
+    background-color: transparent;
+    margin-top:15px;
+    cursor:pointer;
+    border-radius: 3px;
 }
+
+.save-btn{
+    border:1px solid #319795;
+    color:#000;
+    margin-left: 5px;
+}
+
+.cancel-btn{
+  border:1px solid #c53030;
+  color:#000;
+  transition: all 0.3s;
+}
+.save-btn:hover{
+  background-color: rgba(49, 151, 149,0.05);
+}
+.cancel-btn:hover{
+  background: rgba(197, 48, 48,0.1);
+
+}
+
+.display-n{
+  display:none
+}
+
