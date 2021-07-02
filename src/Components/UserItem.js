@@ -33,13 +33,13 @@ function UserItem({state,deleteHandler,setEditObj}) {
     return (
         <Scrollbars 
             autoHide
-
+            
             autoHideTimeout={500} 
             autoHideDuration={100} 
     
             className="user-list-wrap">
             {
-                state.allUser.map(user=>{
+                state.allUser.slice(0).reverse().map(user=>{
                     return(
                         <div>
                             <div 
@@ -49,7 +49,7 @@ function UserItem({state,deleteHandler,setEditObj}) {
                                     // backgroundColor:'rgba(49, 151, 149,0.3)',
                                     borderBottom:'1px solid rgba(49, 151, 149,0.2)',
                                     margin:'0px auto',padding:'10px',
-                                    width:'96.7%',
+                                    width:'95%',
                                     // borderRadius:'5px',
                                     // inset: "20px !important",
                                     // cursor:"pointer" 

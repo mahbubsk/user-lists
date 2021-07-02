@@ -2,6 +2,7 @@ import React from 'react'
 import {useSelector, useDispatch} from 'react-redux';
 import {AiFillDelete} from 'react-icons/ai';
 import {FaRegUserCircle} from 'react-icons/fa';
+import { Scrollbars } from 'react-custom-scrollbars-2';
 
 function Favourites() {
 
@@ -22,22 +23,29 @@ function Favourites() {
     }
 
     return (
-        <div style={{width:'40%'}}> 
+        <div style={{width:'30%'}}> 
             { 
                 state.allFavourites.length > 0 && 
                 <div>
                     <h2>Favourites List</h2>
+                    <Scrollbars
+                        className="user-list-wrap"
+                    >
                     {
                         
-                        state.allFavourites.map(favourite=>{
+                        state.allFavourites.slice(0).reverse().map(favourite=>{
                             return(
                                 <div 
                                     style={{
                                         display:"flex",alignItems: "center", 
                                         justifyContent:"space-between", 
-                                        backgroundColor:'rgba(49, 151, 149,0.3)',
-                                        marginTop:'20px',padding:'10px',
-                                        width:'18rem',borderRadius:'5px',
+                                        // backgroundColor:'rgba(49, 151, 149,0.3)',
+                                        borderBottom:'1px solid rgba(49, 151, 149,0.2)',
+                                        margin:'0px auto',padding:'10px',
+                                        width:'95%',
+                                        // borderRadius:'5px',
+                                        // inset: "20px !important",
+                                        // cursor:"pointer" 
                                         
                                     }}>
                                     <div style={{display:'flex'}}>
@@ -62,9 +70,10 @@ function Favourites() {
                                         />
                                     </div>
                                 </div>
-                            )
-                        })
-                    } 
+                                )
+                            })
+                        }    
+                    </Scrollbars> 
                 </div>
             }
         </div>
