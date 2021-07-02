@@ -5,7 +5,7 @@
 
 .user-list-wrap{
   background-color: #fff;
-  width:74% !important;
+  width:100% !important;
   height:500px !important;
   padding:10px !important;
   margin-top: 30px !important;
@@ -25,7 +25,7 @@
 } 
 
 .modal-background{
-  background: rgba(78, 70, 70, 0.466);
+  background: rgba(78, 70, 70, 0.233);
   backdrop-filter: blur(2px);
   width:100vw;
   height: 100vh;
@@ -39,15 +39,14 @@
   display:flex;
   justify-content:center;
   align-items:center;
-  width:15rem;
-  height:15rem;
+  width: 25rem;
+  height: 8rem;
   position:relative;
   left:50%;
   top:50%;
   transform: translate(-50%,-50%);
   z-index: 10;
   border-radius:20px;
-  border:2px solid #319795;
 }
 
 .btn{
@@ -83,4 +82,5 @@
 .display-n{
   display:none
 }
+
 

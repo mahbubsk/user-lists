@@ -7,7 +7,7 @@ function User() {
 
     const [name,setName] = useState('');
     const [editObj, setEditObj] = useState('');
-
+    const [required, setRequired] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -27,7 +27,8 @@ function User() {
       
       const user = {
         id:nanoid(),
-        name:name
+        name:name,
+        isFav:false
       }
   
       dispatch({
@@ -37,29 +38,26 @@ function User() {
       setName("");
     }
     
-    const deleteHandler = (e) => {
-      const user = {
-        id:e,
-        name:name
-      }
-  
+    const deleteHandler = (user) => {
       dispatch({
         type:"DELETE_USER",
-        payload: user.id
+        payload:user
       })
     }
 
 
     const updateHandler = () => {
-      dispatch({
-        type:"UPDATE_USER",
-        payload: editObj
-      })
+        dispatch({
+            type:"UPDATE_USER",
+            payload: editObj
+        })
       
-      dispatch({
-        type:'MODAL',
-        payload:false
-      })
+        dispatch({
+            type:'MODAL',
+            payload:false
+        })
+
+
     }
 
     const cancelHandler = () =>{
@@ -72,7 +70,7 @@ function User() {
 
 
     return (
-        <div style={{width:"40%"}}>
+        <div style={{width:"30%"}}>
             <div>
                 <h2>User List</h2>
                 <input
@@ -85,7 +83,7 @@ function User() {
                         padding:'6px 15px',outline: 'none',
                         marginRight:'10px', borderRadius:'5px', 
                         border:'1px solid #ddd',
-                        width:'58%',
+                        width:'70%',
                         fontSize:'16px'
                     }}
                 />
@@ -101,19 +99,28 @@ function User() {
               <div className={stateModal ? 'modal' : 'display-n'}>
                  <div>
                     <div>
+                        <label>Update Name: </label>
                         <input 
+                            
                             type="text"
                             value={editObj.name}
                             placeholder="update filed"
                             onChange={(e)=>setEditObj({
                               name:e.target.value,
-                              id:editObj.id
+                              id:editObj.id,
+                              isFav:editObj.isFav
                             })}
-                            style={{padding:'10px',border:'1px solid #ddd',borderRadius:'5px',width:'10rem',outline:'none',fontSize:'1rem'}}
+                                style={
+                                    {
+                                        padding:'10px',borderRadius:'5px',width:'10rem',outline:'none',fontSize:'1rem',
+                                        border:editObj.name ? "1px solid #ddd" : "1px solid red"
+                                    }
+                                }
                           />
+
                     </div>
                     <button className="cancel-btn btn" onClick={cancelHandler}>cancel</button>
-                    <button className="save-btn btn" onClick={updateHandler}>save</button>
+                    <button className="save-btn btn" onClick={editObj.name && updateHandler}>save</button>
                  </div>
               </div>
             </div>

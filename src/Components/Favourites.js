@@ -12,6 +12,7 @@ function Favourites() {
     console.log(state);
 
     const favouriteDeleteHandler = (favourite) => {
+        favourite.isFav=false;
         const action = {
             type:"DELETE_FROM_FAVOURITE",
             payload:favourite

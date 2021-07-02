@@ -5,7 +5,7 @@ import {AiFillDelete} from 'react-icons/ai';
 import {GrFavorite} from 'react-icons/gr';
 import {FaRegUserCircle} from 'react-icons/fa'; 
 import { Scrollbars } from 'react-custom-scrollbars-2';
-
+import {MdFavoriteBorder} from 'react-icons/md';
 
 
 function UserItem({state,deleteHandler,setEditObj}) { 
@@ -18,12 +18,14 @@ function UserItem({state,deleteHandler,setEditObj}) {
     console.log(stateModal)
 
     const favouritHandler = (user) =>{
+        user.isFav=true;
         const action = {
             type:"ADD_TO_FAVOURITE",
             payload:user
         }
         
         dispatch(action);
+        
     }
 
 
@@ -91,8 +93,8 @@ function UserItem({state,deleteHandler,setEditObj}) {
                                         deleteHandler(user)
                                     }}
                                 />
-                                <GrFavorite 
-                                    style={{cursor:"pointer", color: '#4A5568'}}
+                                <MdFavoriteBorder 
+                                    style={{cursor:"pointer", color: user.isFav ? "red" : '#4A5568'}}
                                     onClick={()=>favouritHandler(user)}
                                 />
                             </div>
