@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import ItemUser from './Style/UserItem/ItemUser';
 import IconWrapper from './Style/UserItem/IconWrapper';
@@ -18,12 +18,23 @@ function UserItem({deleteHandler,setEditObj}) {
         return state.user;
     });
     console.log(state)
+
     const favouritHandler = (user) =>{
         user.isFav=true;
         const action = {
             type:"ADD_TO_FAVOURITE",
             payload:user
         }
+        dispatch(action);
+    }
+
+    const favouriteDeleteHandler = (user) => {
+        user.isFav=false;
+        const action = {
+            type:"DELETE_FROM_FAVOURITE",
+            payload:user
+        }
+
         dispatch(action);
     }
 
@@ -84,7 +95,7 @@ function UserItem({deleteHandler,setEditObj}) {
                                     />
                                     <MdFavoriteBorder 
                                         style={{color: user.isFav ? "red" : '#4A5568',cursor:'pointer'}}
-                                        onClick={()=>favouritHandler(user)}
+                                        onClick={user.isFav ? () => favouriteDeleteHandler(user) : () => favouritHandler(user)}
                                     />
                                 </IconWrapper>
                             </ItemUser>
