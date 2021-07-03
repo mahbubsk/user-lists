@@ -1,8 +1,33 @@
 const initialState = {
-    allUser:[],
+    allUser:[
+        {
+            name:"Md Mahbubur Rahman",
+            id: 2453,
+            isFav:false
+        },
+
+        {
+            name:"Md Asief Mahir",
+            id: 2453,
+            isFav:false
+        },
+        {
+            name:"Kazi Monirul Islam Timir",
+            id: 6575,
+            isFav:false
+        },
+        {
+            name:"Md Rijwan Hossain",
+            id: 2434,
+            isFav:false
+        }
+        
+
+    ],
     allFavourites:[],
-    length:0,
-    favouriteLength:0
+    length:3,
+    favouriteLength:0,
+    modal:false
 }
 
 const userReducer = (state=initialState, action) => {
@@ -70,10 +95,7 @@ const userReducer = (state=initialState, action) => {
                 favouriteLength:allFavourites.length
             }
 
-            break;
-
         case "DELETE_FROM_FAVOURITE":
-            console.log(action.payload);
             let deleteFavouriteArr = state.allFavourites.filter(favourite=>favourite.id!==action.payload.id);
 
             return {
@@ -87,7 +109,6 @@ const userReducer = (state=initialState, action) => {
                 ...state,
                 modal:newModalState
             }
-            break;
 
         case "MODAL_CANCEL":
             const cancelModal = action.payload;
@@ -95,7 +116,6 @@ const userReducer = (state=initialState, action) => {
                 ...state,
                 modal:cancelModal
             }
-            break;
 
             
     

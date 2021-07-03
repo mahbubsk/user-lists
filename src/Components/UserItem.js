@@ -1,104 +1,93 @@
-import React   from 'react'
-import {useSelector, useDispatch } from 'react-redux';
+import React, {useState} from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import ItemUser from './Style/UserItem/ItemUser';
+import IconWrapper from './Style/UserItem/IconWrapper';
+import UserName from './Style/UserItem/UserName';
+import UsernameIconWrap from './Style/UserItem/UsernameIconWrap';
 import {MdModeEdit} from 'react-icons/md';
 import {AiFillDelete} from 'react-icons/ai';
-import {GrFavorite} from 'react-icons/gr';
 import {FaRegUserCircle} from 'react-icons/fa'; 
 import { Scrollbars } from 'react-custom-scrollbars-2';
 import {MdFavoriteBorder} from 'react-icons/md';
 
 
-function UserItem({state,deleteHandler,setEditObj}) { 
-
+function UserItem({deleteHandler,setEditObj}) { 
     const dispatch = useDispatch();
     
-    const stateModal = useSelector(function(state) {
-        return state.user.modal;
+    const state = useSelector(function(state) {
+        return state.user;
     });
-    console.log(stateModal)
-
+    console.log(state)
     const favouritHandler = (user) =>{
         user.isFav=true;
         const action = {
             type:"ADD_TO_FAVOURITE",
             payload:user
         }
-        
         dispatch(action);
-        
     }
 
+ 
+    
+    const userIconStyle = {
+        alignSelf: 'center', 
+        color: '#4A5568',
+        width:'30px',
+        height:'30px'
+    }
 
+    const iconsStyle = {
+        cursor:"pointer",
+        color: '#4A5568',
+        marginRight:'10px'
+    }
 
     return (
         <Scrollbars 
             autoHide
-            
             autoHideTimeout={500} 
             autoHideDuration={100} 
-    
-            className="user-list-wrap">
+            className="user-list-wrap"
+        >
             {
-                state.allUser.slice(0).reverse().map(user=>{
-                    return(
-                        <div>
-                            <div 
-                                style={{
-                                    display:"flex",alignItems: "center", 
-                                    justifyContent:"space-between", 
-                                    // backgroundColor:'rgba(49, 151, 149,0.3)',
-                                    borderBottom:'1px solid rgba(49, 151, 149,0.2)',
-                                    margin:'0px auto',padding:'10px',
-                                    width:'95%',
-                                    // borderRadius:'5px',
-                                    // inset: "20px !important",
-                                    // cursor:"pointer" 
-                                }}
-                                className="list-item"
+                state.allUser.slice(0).reverse().map(user => { 
+                    return( 
+                        <div key={user.id}> 
+                            <ItemUser 
                             > 
-                            <div style={{display:'flex'}}>
-                                <FaRegUserCircle width="30px" height="30px" 
-                                    style={{
-                                        alignSelf: 'center', 
-                                        color: '#4A5568'
-                                    }} /> 
-                                <p style={{margin:"10px",fontWeight:'400',fontSize:'16px', color: '#4A5568'}}>
-                                    {user && user.name}
-                                </p>
-                            </div>
+                                <UsernameIconWrap>
+                                    <FaRegUserCircle
+                                        style={userIconStyle} 
+                                    /> 
+                                    <UserName>
+                                        {user && user.name}
+                                    </UserName>
+                                </UsernameIconWrap>
 
-                            <div 
-                                style={{
-                                    display:'flex', alignItems:'center',
-                                    justifyContent:'space-between', 
-                                    marginRight: '5px', 
-                                    transition:"all 0.5s",
-                                    fontSize:'0px' 
-                                }} 
-                                className="icons-warpper" 
-                            > 
-                                <MdModeEdit 
-                                    style={{cursor:"pointer", color: '#4A5568',marginRight:'10px'}}
-                                    onClick={()=>{
-                                        setEditObj(user)
-                                        dispatch({
-                                            type:"MODAL",
-                                            payload:true
-                                        })
-                                    }}    
-                                />
-                                <AiFillDelete 
-                                    style={{cursor:"pointer", color: '#4A5568',marginRight:'10px'}}
-                                    onClick={()=>{
-                                        deleteHandler(user)
-                                    }}
-                                />
-                                <MdFavoriteBorder 
-                                    style={{cursor:"pointer", color: user.isFav ? "red" : '#4A5568'}}
-                                    onClick={()=>favouritHandler(user)}
-                                />
-                            </div>
-                        </div>
+                                <IconWrapper 
+                                > 
+                                    <MdModeEdit 
+                                        style={iconsStyle}
+                                        onClick={()=>{
+                                            setEditObj(user)
+                                            dispatch({
+                                                type:"MODAL",
+                                                payload:true
+                                            })
+                                        }}    
+                                    />
+                                    <AiFillDelete 
+                                        style={iconsStyle}
+                                        onClick={()=>{
+                                            deleteHandler(user)
+                                        }}
+                                    />
+                                    <MdFavoriteBorder 
+                                        style={{color: user.isFav ? "red" : '#4A5568',cursor:'pointer'}}
+                                        onClick={()=>favouritHandler(user)}
+                                    />
+                                </IconWrapper>
+                            </ItemUser>
                         </div>
                     )
                 })

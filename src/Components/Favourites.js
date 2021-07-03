@@ -1,5 +1,10 @@
 import React from 'react'
 import {useSelector, useDispatch} from 'react-redux';
+import styled from 'styled-components';
+import ItemUser from './Style/UserItem/ItemUser';
+import UserName from './Style/UserItem/UserName';
+import UsernameIconWrap from './Style/UserItem/UsernameIconWrap';
+
 import {AiFillDelete} from 'react-icons/ai';
 import {FaRegUserCircle} from 'react-icons/fa';
 import { Scrollbars } from 'react-custom-scrollbars-2';
@@ -9,8 +14,9 @@ function Favourites() {
     const dispatch = useDispatch();
     const state = useSelector(function(state) {
         return state.user;
-    });
-    console.log(state);
+    }); 
+
+
 
     const favouriteDeleteHandler = (favourite) => {
         favourite.isFav=false;
@@ -22,12 +28,32 @@ function Favourites() {
         dispatch(action);
     }
 
+    //styles
+    
+    const FavTitle = styled.h2`
+        margin: "57px 0 0 0"
+    `
+    const userIconStyle = {
+        alignSelf: 'center', 
+        color: '#4A5568',
+        height:'30px',
+        width:'30px'
+    }
+
+
+    const favDelIconStyle = {
+        cursor:"pointer",
+        color: '#4A5568'
+    }
+
+
+
     return (
-        <div style={{width:'30%'}}> 
+        <div style={{width:'30%', zIndex:state.modal ? "-1" : '0'}}> 
             { 
                 state.allFavourites.length > 0 && 
                 <div>
-                    <h2>Favourites List</h2>
+                    <FavTitle >Favourites List</FavTitle>
                     <Scrollbars
                         className="user-list-wrap"
                     >
@@ -35,41 +61,25 @@ function Favourites() {
                         
                         state.allFavourites.slice(0).reverse().map(favourite=>{
                             return(
-                                <div 
-                                    style={{
-                                        display:"flex",alignItems: "center", 
-                                        justifyContent:"space-between", 
-                                        // backgroundColor:'rgba(49, 151, 149,0.3)',
-                                        borderBottom:'1px solid rgba(49, 151, 149,0.2)',
-                                        margin:'0px auto',padding:'10px',
-                                        width:'95%',
-                                        // borderRadius:'5px',
-                                        // inset: "20px !important",
-                                        // cursor:"pointer" 
-                                        
-                                    }}>
-                                    <div style={{display:'flex'}}>
-                                        <FaRegUserCircle width="30px" height="30px"
-                                            style={{
-                                                alignSelf: 'center'
-                                            }} /> 
-                                        <p style={{margin:"10px",fontWeight:'600',fontSize:'16px'}}>
-                                            {favourite && favourite.name}
-                                        </p>
-                                    </div>
+                                    <ItemUser 
+                                        key={favourite.id}
+                                    > 
 
-                                    <div style={{
-                                        display:'flex', alignItems:'center',
-                                        justifyContent:'space-between',
-                                        marginRight:'5px' 
-                                    }}>
-                                        
+                                        <UsernameIconWrap>
+                                            <FaRegUserCircle style={userIconStyle}/> 
+
+                                            <UserName>
+                                                {favourite && favourite.name}
+                                            </UserName>
+        
+                                        </UsernameIconWrap>
+
                                         <AiFillDelete 
-                                            style={{cursor:"pointer"}}
-                                            onClick={()=>favouriteDeleteHandler(favourite)}
+                                                style={favDelIconStyle}
+                                                onClick={()=>favouriteDeleteHandler(favourite)}
                                         />
-                                    </div>
-                                </div>
+
+                                    </ItemUser>
                                 )
                             })
                         }    
