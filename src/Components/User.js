@@ -36,7 +36,7 @@ function User() {
         const submitedName = name.trim();
         const length = submitedName.length;
 
-        if (length >= 4 && length <= 25) {
+        if (length >= 3 && length <= 25) {
             const user = {
                 id: nanoid(),
                 name: name,
@@ -46,8 +46,8 @@ function User() {
             dispatch({ type: "CREATE_USER", payload: user });
             setName("");
         }
-        else if (length > 25 || (length < 4 && length > 0)) {
-            setNameErrMsg('Name must be greater than 4 and less than or equal to 25 characters');
+        else if (length > 25 || (length < 3 && length > 0)) {
+            setNameErrMsg('Name must be greater than 3 and less than or equal to 25 characters');
             setNameErr(true);
         }
         else {
@@ -68,7 +68,7 @@ function User() {
         const submitedName = editObj.name.trim();
         const length = submitedName.length;
         // validation input length for update name
-        if (length >= 4 && length <= 25) {
+        if (length >= 3 && length <= 25) {
             dispatch({
                 type: "UPDATE_USER",
                 payload: editObj
@@ -87,8 +87,8 @@ function User() {
             setUpdateNameErr(false);
             setUpdateErrMsg('');
         }
-        else if (length > 25 || (length < 4 && length > 0)) {
-            setUpdateErrMsg('Name must be greater than 4 and less than or equal to 25 characters');
+        else if (length > 25 || (length < 3 && length > 0)) {
+            setUpdateErrMsg('Name must be greater than 3 and less than or equal to 25 characters');
             setUpdateNameErr(true);
         }
         else {
@@ -130,7 +130,7 @@ function User() {
                 {
                     state.length > 0
                         ? <UserItem state={state} deleteHandler={deleteHandler} setEditObj={setEditObj} />
-                        : <EmptyText>user list is empty</EmptyText>
+                        : <EmptyText>User list is empty</EmptyText>
                 }
 
                 <Update 
@@ -142,7 +142,8 @@ function User() {
                     updateNameErr={updateNameErr} 
                     setUpdateNameErr={setUpdateNameErr} 
                     updateErrMsg={updateErrMsg}
-                />
+                    setUpdateErrMsg={setUpdateErrMsg}
+            />
             </ListWrapper>
 
 

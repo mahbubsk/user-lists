@@ -3,12 +3,11 @@ import styled from 'styled-components';
 const Button = styled.button`
     outline: none;
     border:none;
-    padding:5px 10px;
-    font-size:20px;
+    font-size:16px;
     background-color: transparent;
     margin-top:15px;
     cursor:pointer;
-    border-radius: 3px;
+    border-radius: 5px;
     color:#000;
     margin-left: 5px;
     transition: all 0.3s;

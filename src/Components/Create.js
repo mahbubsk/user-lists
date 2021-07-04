@@ -12,7 +12,7 @@ function Create({name,clickHandler,setName,nameErrMsg,setNameErr,nameErr}) {
         border:nameErr ? '1px solid #c53030' : '1px solid #ddd',
         width:'80%',
         height:'calc(40px - 12px)',
-        fontSize:'20px',
+        fontSize:'16px',
         borderRadius:'8px 0 0 8px'
     }
 
@@ -32,7 +32,7 @@ function Create({name,clickHandler,setName,nameErrMsg,setNameErr,nameErr}) {
                     style={createInputStyle} 
                 /> 
                 <CreateUserBtn onClick={clickHandler}>
-                    Add User
+                    Save
                 </CreateUserBtn>
             </CreateInputBox>
 

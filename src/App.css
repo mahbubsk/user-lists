@@ -6,7 +6,7 @@
 .user-list-wrap{
     background-color: #fff;
     width:100% !important;
-    height:500px !important;
+    height:60vh !important;
     margin-top: 30px !important;
     border-radius: 10px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 -1px 3px rgba(0, 0, 0, 0.1); 

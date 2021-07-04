@@ -4,7 +4,7 @@ import Modal from './Style/Update/Modal';
 import Button from './Style/Update/Button';
 import ErrMsg from './Style/Common/ErrMsg';
 import Label from './Style/Update/Label';
-function Update({stateModal,editObj, setEditObj,updateNameErr,setUpdateNameErr,updateErrMsg,cancelHandler,updateHandler}) {
+function Update({stateModal,editObj, setEditObj,updateNameErr,setUpdateNameErr,updateErrMsg,cancelHandler,updateHandler,setUpdateErrMsg}) {
 
     const updateInputStyle = {
         padding: '10px', 
@@ -26,7 +26,7 @@ function Update({stateModal,editObj, setEditObj,updateNameErr,setUpdateNameErr,u
             <Modal stateModal={stateModal}>
                 <div>
                     <div>
-                        <Label>Update Name: </Label>
+                        <Label>Update Name</Label>
                         <input
                             type="text"
                             value={editObj.name}
@@ -37,7 +37,8 @@ function Update({stateModal,editObj, setEditObj,updateNameErr,setUpdateNameErr,u
                                     id: editObj.id,
                                     isFav: editObj.isFav
                                 })
-                                setUpdateNameErr(false)
+                                setUpdateNameErr(false);
+                                setUpdateErrMsg("");
                             }}
                             style={updateInputStyle}
                         />
