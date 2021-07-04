@@ -1,31 +1,7 @@
 const initialState = {
-    allUser:[
-        {
-            name:"Md Mahbubur Rahman",
-            id: 2453,
-            isFav:false
-        },
-
-        {
-            name:"Md Asief Mahir",
-            id: 2453,
-            isFav:false
-        },
-        {
-            name:"Kazi Monirul Islam Timir",
-            id: 6575,
-            isFav:false
-        },
-        {
-            name:"Md Rijwan Hossain",
-            id: 2434,
-            isFav:false
-        }
-        
-
-    ],
+    allUser:[],
     allFavourites:[],
-    length:3,
+    length:0,
     favouriteLength:0,
     modal:false
 }

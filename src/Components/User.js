@@ -36,7 +36,7 @@ function User() {
         const submitedName = name.trim();
         const length = submitedName.length;
 
-        if (length > 0 && length <= 20) {
+        if (length >= 4 && length <= 25) {
             const user = {
                 id: nanoid(),
                 name: name,
@@ -46,8 +46,8 @@ function User() {
             dispatch({ type: "CREATE_USER", payload: user });
             setName("");
         }
-        else if (length > 20) {
-            setNameErrMsg('Name must be less than or equal to 20 characters');
+        else if (length > 25 || (length < 4 && length > 0)) {
+            setNameErrMsg('Name must be greater than 4 and less than or equal to 25 characters');
             setNameErr(true);
         }
         else {
@@ -68,7 +68,7 @@ function User() {
         const submitedName = editObj.name.trim();
         const length = submitedName.length;
         // validation input length for update name
-        if (length > 4 && length <= 25) {
+        if (length >= 4 && length <= 25) {
             dispatch({
                 type: "UPDATE_USER",
                 payload: editObj
@@ -87,8 +87,8 @@ function User() {
             setUpdateNameErr(false);
             setUpdateErrMsg('');
         }
-        else if (length > 25 || length < 5) {
-            setUpdateErrMsg('Name must be greater than 5 and less than or equal to 25 characters ');
+        else if (length > 25 || (length < 4 && length > 0)) {
+            setUpdateErrMsg('Name must be greater than 4 and less than or equal to 25 characters');
             setUpdateNameErr(true);
         }
         else {

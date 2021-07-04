@@ -35,7 +35,7 @@ function UserItem({deleteHandler,setEditObj}) {
             payload:user
         }
 
-        dispatch(action);
+        dispatch(action);   
     }
 
  
