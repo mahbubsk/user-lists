@@ -1,15 +1,17 @@
 const initialState = {
     allUser:[
         {name:"Mahbub SK", id:"192192", isFav: true},
-        {name:"Islam Timir", id:"192193", isFav: false},
+        {name:"Islam Timir", id:"192193", isFav: true},
         {name:"Asief Mahir", id:"192194", isFav: false},
         {name:"Rijwan Hossain", id:"192195", isFav: false}
     ],
     allFavourites:[
-        {name:"Mahbub SK", id:"192192", isFav: true}
+        {name:"Mahbub SK", id:"192192", isFav: true},
+        {name:"Islam Timir", id:"192193", isFav: true}
+
     ],
     length:4,
-    favouriteLength:1,
+    favouriteLength:2,
     modal:false
 }
 
@@ -80,11 +82,23 @@ const userReducer = (state=initialState, action) => {
 
         case "DELETE_FROM_FAVOURITE":
             let deleteFavouriteArr = state.allFavourites.filter(favourite=>favourite.id!==action.payload.id);
-
+            let newUserArray = [];
+            for (let i = 0; i < state.allUser.length; i++) {
+                if(action.payload.id===state.allUser[i].id){
+                    newUserArray[i] = state.allUser[i];
+                    newUserArray[i].isFav = false;
+                } else {
+                    newUserArray[i] = state.allUser[i]
+                }
+                
+            }
             return {
                 ...state,
                 allFavourites:deleteFavouriteArr,
-                favouriteLength:deleteFavouriteArr.length
+                favouriteLength:deleteFavouriteArr.length,
+                allUser:newUserArray,
+                length:newUserArray.length
+
             }
         case "MODAL":
             const newModalState = action.payload;
