@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const CreateUserBtn = styled.div`
-    font-size:14px;
+    font-size:16px;
     background:#319795;
     border:1px solid #319795;
     height:40px;

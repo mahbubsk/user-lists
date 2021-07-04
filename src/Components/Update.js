@@ -11,7 +11,7 @@ function Update({stateModal,editObj, setEditObj,updateNameErr,setUpdateNameErr,u
         borderRadius: '5px',
         width: '80%', 
         outline: 'none', 
-        fontSize: '1rem',
+        fontSize: '16px',
         border: updateNameErr ? "1px solid #c53030" : "1px solid #ddd",
         marginTop:'2rem'
     }
@@ -24,13 +24,13 @@ function Update({stateModal,editObj, setEditObj,updateNameErr,setUpdateNameErr,u
     return (
         <ModalBackground stateModal={stateModal}>
             <Modal stateModal={stateModal}>
-                <div>
+                <div style={{marginBottom:'25px'}}>
                     <div>
                         <Label>Update Name</Label>
                         <input
                             type="text"
                             value={editObj.name}
-                            placeholder="update filed"
+                            placeholder="User Name"
                             onChange={(e) => {
                                 setEditObj({
                                     name: e.target.value,

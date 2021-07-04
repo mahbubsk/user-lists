@@ -5,7 +5,7 @@ const Label = styled.div`
     width:100%;
     height:3rem;
     text-align:center;
-    font-size:21px;
+    font-size:19px;
     display:flex;
     align-items:center;
     justify-content:center;

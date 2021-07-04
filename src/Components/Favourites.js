@@ -45,8 +45,8 @@ function Favourites() {
     const userIconStyle = {
         alignSelf: 'center', 
         color: '#4A5568',
-        height:'25px',
-        width:'25px'
+        height:'20px',
+        width:'20px'
     }
 
 
@@ -65,6 +65,9 @@ function Favourites() {
                     <FavTitle>Favourites List</FavTitle>
                     <Scrollbars
                         className="user-list-wrap"
+                        autoHide
+                        autoHideTimeout={500} 
+                        autoHideDuration={100} 
                     >
                     {
                         
