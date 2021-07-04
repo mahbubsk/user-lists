@@ -35,6 +35,8 @@ function Favourites({nameErr}) {
 
     const FavTitle = styled.h2`
         color:#4A5568;
+        font-weight:600;    
+
         @media (max-width:989px){
             font-size:30px;
         }
