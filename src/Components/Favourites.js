@@ -10,7 +10,7 @@ import {AiFillDelete} from 'react-icons/ai';
 import {FaRegUserCircle} from 'react-icons/fa';
 import { Scrollbars } from 'react-custom-scrollbars-2';
 
-function Favourites() {
+function Favourites({nameErr}) {
 
     const dispatch = useDispatch();
     const state = useSelector(function(state) {
@@ -34,7 +34,6 @@ function Favourites() {
 
 
     const FavTitle = styled.h2`
-        margin: 57px 0 0 0;
         color:#4A5568;
         @media (max-width:989px){
             font-size:30px;
@@ -62,7 +61,7 @@ function Favourites() {
             { 
                 state.allFavourites.length > 0 && 
                 <div>
-                    <FavTitle>Favourites List</FavTitle>
+                    <FavTitle style={{margin: nameErr ? '77px 0 0 0' : '57px 0 0 0'}}>Favourites List</FavTitle>
                     <Scrollbars
                         className="user-list-wrap"
                         autoHide

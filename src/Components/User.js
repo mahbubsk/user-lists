@@ -147,7 +147,7 @@ function User() {
             </ListWrapper>
 
 
-            <Favourites/>
+            <Favourites nameErr={nameErr}/>
         </UserFavListWrapper>
     )
 }
