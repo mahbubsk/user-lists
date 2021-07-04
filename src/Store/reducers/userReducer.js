@@ -1,8 +1,15 @@
 const initialState = {
-    allUser:[],
-    allFavourites:[],
-    length:0,
-    favouriteLength:0,
+    allUser:[
+        {name:"Md Mahbubur Rahman", id:"192192", isFav: true},
+        {name:"Md Kazi Monirul Islam Timir", id:"192193", isFav: false},
+        {name:"Md Asief Mahir", id:"192194", isFav: false},
+        {name:"Md Rijwan Hossain", id:"192195", isFav: false}
+    ],
+    allFavourites:[
+        {name:"Md Mahbubur Rahman", id:"192192", isFav: true}
+    ],
+    length:4,
+    favouriteLength:1,
     modal:false
 }
 

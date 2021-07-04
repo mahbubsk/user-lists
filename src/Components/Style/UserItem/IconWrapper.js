@@ -10,11 +10,11 @@ const IconWrapper = styled.div`
     font-size: 0px;
 
     ${ItemUser}:hover &{
-        font-size:20px;
+        font-size:20px !important;
     }
     
     @media (max-width:768px){
-        font-size:20px;
+        font-size:20px !important;
     }
 `
 

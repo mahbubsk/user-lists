@@ -5,7 +5,7 @@ import ListWrapper from './Style/User/ListWrapper';
 import ItemUser from './Style/UserItem/ItemUser';
 import UserName from './Style/UserItem/UserName';
 import UsernameIconWrap from './Style/UserItem/UsernameIconWrap';
-
+import IconWrapper from './Style/UserItem/IconWrapper';
 import {AiFillDelete} from 'react-icons/ai';
 import {FaRegUserCircle} from 'react-icons/fa';
 import { Scrollbars } from 'react-custom-scrollbars-2';
@@ -51,7 +51,8 @@ function Favourites({nameErr}) {
 
     const favDelIconStyle = {
         cursor:"pointer",
-        color: '#4A5568'
+        color: '#4A5568',
+        fontSize:'0'
     }
 
 
@@ -84,12 +85,11 @@ function Favourites({nameErr}) {
                                             </UserName>
         
                                         </UsernameIconWrap>
-
-                                        <AiFillDelete 
-                                                style={favDelIconStyle}
-                                                onClick={()=>favouriteDeleteHandler(favourite)}
-                                        />
-
+                                        <IconWrapper style={favDelIconStyle}>
+                                            <AiFillDelete 
+                                                    onClick={()=>favouriteDeleteHandler(favourite)}
+                                            />
+                                        </IconWrapper>
                                     </ItemUser>
                                 )
                             })
