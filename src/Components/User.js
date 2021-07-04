@@ -7,7 +7,7 @@ import Update from './Update';
 import Favourites from './Favourites';
 import UserFavListWrapper from './Style/User/UserFavListWrapper';
 import ListTitle from './Style/User/ListTitle';
-import CreateUpdateWrapper from './Style/User/CreateUpdateWrapper';
+import ListWrapper from './Style/User/ListWrapper';
 import EmptyText from './Style/Common/EmptyText';
 
 
@@ -116,7 +116,7 @@ function User() {
 
     return (
         <UserFavListWrapper>
-            <CreateUpdateWrapper>
+            <ListWrapper>
                 <Create 
                     name={name} 
                     clickHandler={clickHandler}
@@ -143,7 +143,7 @@ function User() {
                     setUpdateNameErr={setUpdateNameErr} 
                     updateErrMsg={updateErrMsg}
                 />
-            </CreateUpdateWrapper>
+            </ListWrapper>
 
 
             <Favourites/>

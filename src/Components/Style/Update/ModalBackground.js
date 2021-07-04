@@ -11,6 +11,7 @@ const ModalBackground = styled.div`
     display: ${props=>props.stateModal && "flex"};
     justify-content: ${props=>props.stateModal && "center"};
     align-items: ${props=>props.stateModal && "center"};
+    // padding:2rem;
 `
 
 export default ModalBackground;

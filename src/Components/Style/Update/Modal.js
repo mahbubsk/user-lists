@@ -11,6 +11,13 @@ const Modal = styled.div`
     z-index: ${props=>props.stateModal && "9999"};
     display: ${props=>props.stateModal ? "" : "none"};
     text-align: center;
+
+    @media (max-width:615px) {
+        width: ${props=>props.stateModal && "17rem"};
+    }
+    @media (max-width:405px) {
+        width: ${props=>props.stateModal && "12rem"};
+    }
 `
 
 export default Modal;

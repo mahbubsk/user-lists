@@ -1,6 +1,7 @@
 import React from 'react'
 import {useSelector, useDispatch} from 'react-redux';
 import styled from 'styled-components';
+import ListWrapper from './Style/User/ListWrapper';
 import ItemUser from './Style/UserItem/ItemUser';
 import UserName from './Style/UserItem/UserName';
 import UsernameIconWrap from './Style/UserItem/UsernameIconWrap';
@@ -30,9 +31,17 @@ function Favourites() {
 
     //styles
     
+
+
     const FavTitle = styled.h2`
-        margin: "57px 0 0 0"
+        margin: 57px 0 0 0;
+
+        @media (max-width:989px){
+            font-size:30px;
+        }
     `
+
+
     const userIconStyle = {
         alignSelf: 'center', 
         color: '#4A5568',
@@ -49,11 +58,11 @@ function Favourites() {
 
 
     return (
-        <div style={{width:'30%', zIndex:state.modal ? "-1" : '0'}}> 
+        <ListWrapper style={{zIndex:state.modal ? "-1" : '0'}}> 
             { 
                 state.allFavourites.length > 0 && 
                 <div>
-                    <FavTitle >Favourites List</FavTitle>
+                    <FavTitle>Favourites List</FavTitle>
                     <Scrollbars
                         className="user-list-wrap"
                     >
@@ -86,7 +95,7 @@ function Favourites() {
                     </Scrollbars> 
                 </div>
             }
-        </div>
+        </ListWrapper>
     )
 }
 
