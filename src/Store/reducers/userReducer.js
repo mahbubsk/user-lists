@@ -1,12 +1,12 @@
 const initialState = {
     allUser:[
-        {name:"Md Mahbubur Rahman", id:"192192", isFav: true},
-        {name:"Kazi Monirul Islam Timir", id:"192193", isFav: false},
-        {name:"Md Asief Mahir", id:"192194", isFav: false},
-        {name:"Md Rijwan Hossain", id:"192195", isFav: false}
+        {name:"Mahbub SK", id:"192192", isFav: true},
+        {name:"Islam Timir", id:"192193", isFav: false},
+        {name:"Asief Mahir", id:"192194", isFav: false},
+        {name:"Rijwan Hossain", id:"192195", isFav: false}
     ],
     allFavourites:[
-        {name:"Md Mahbubur Rahman", id:"192192", isFav: true}
+        {name:"Mahbub SK", id:"192192", isFav: true}
     ],
     length:4,
     favouriteLength:1,
