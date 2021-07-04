@@ -4,7 +4,7 @@ const Button = styled.button`
     outline: none;
     border:none;
     padding:5px 10px;
-    font-size:16px;
+    font-size:20px;
     background-color: transparent;
     margin-top:15px;
     cursor:pointer;
@@ -12,6 +12,7 @@ const Button = styled.button`
     color:#000;
     margin-left: 5px;
     transition: all 0.3s;
+    padding:8px 16px;
     border:${props=>props.saveButton ? '1px solid #319795' : '1px solid #c53030'};
 
     &:hover{

@@ -13,7 +13,7 @@ function Update({stateModal,editObj, setEditObj,updateNameErr,setUpdateNameErr,u
         outline: 'none', 
         fontSize: '1rem',
         border: updateNameErr ? "1px solid #c53030" : "1px solid #ddd",
-        marginTop:'1.5rem'
+        marginTop:'2rem'
     }
 
     

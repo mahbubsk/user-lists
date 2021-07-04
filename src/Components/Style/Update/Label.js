@@ -10,7 +10,7 @@ const Label = styled.div`
     align-items:center;
     justify-content:center;
     color:white;
-    border-radius:8px;
+    border-radius:20px 20px 0 0;
 `
 
 export default Label;
