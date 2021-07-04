@@ -16,7 +16,7 @@ const Modal = styled.div`
         width: ${props=>props.stateModal && "17rem"};
     }
     @media (max-width:405px) {
-        width: ${props=>props.stateModal && "12rem"};
+        width: ${props=>props.stateModal && "80%"};
         min-height: ${props=>props.stateModal && "42%"};
     }
 `
