@@ -6,7 +6,7 @@ const Modal = styled.div`
     // justify-content: ${props=>props.stateModal && "center"};
     // align-items: ${props=>props.stateModal && "center"};
     width: ${props=>props.stateModal && "25rem"};
-    height: ${props=>props.stateModal && "13rem"};
+    min-height: ${props=>props.stateModal && "38%"};
     border-radius: ${props=>props.stateModal && "20px"};
     z-index: ${props=>props.stateModal && "9999"};
     display: ${props=>props.stateModal ? "" : "none"};
@@ -17,6 +17,7 @@ const Modal = styled.div`
     }
     @media (max-width:405px) {
         width: ${props=>props.stateModal && "12rem"};
+        min-height: ${props=>props.stateModal && "42%"};
     }
 `
 

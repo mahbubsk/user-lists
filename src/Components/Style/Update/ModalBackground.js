@@ -2,9 +2,10 @@ import styled from 'styled-components';
 
 const ModalBackground = styled.div`
     background: ${props=>props.stateModal && "rgba(78, 70, 70, 0.233)"};
+    background-size: ${props=>props.stateModal && "cover"};
     backdrop-filter: ${props=>props.stateModal && "blur(2px)"};
-    width: ${props=>props.stateModal && "100vw"};
-    height: ${props=>props.stateModal && "100vh"};
+    width: ${props=>props.stateModal && "100%"};
+    height: ${props=>props.stateModal && "100%"};
     position: ${props=>props.stateModal && "absolute"};
     top: ${props=>props.stateModal && "0"};
     left: ${props=>props.stateModal && "0"};

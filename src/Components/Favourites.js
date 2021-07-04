@@ -35,7 +35,7 @@ function Favourites() {
 
     const FavTitle = styled.h2`
         margin: 57px 0 0 0;
-
+        color:#4A5568;
         @media (max-width:989px){
             font-size:30px;
         }
@@ -45,8 +45,8 @@ function Favourites() {
     const userIconStyle = {
         alignSelf: 'center', 
         color: '#4A5568',
-        height:'30px',
-        width:'30px'
+        height:'25px',
+        width:'25px'
     }
 
 
