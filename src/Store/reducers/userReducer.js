@@ -1,7 +1,7 @@
 const initialState = {
     allUser:[
         {name:"Md Mahbubur Rahman", id:"192192", isFav: true},
-        {name:"Md Kazi Monirul Islam Timir", id:"192193", isFav: false},
+        {name:"Kazi Monirul Islam Timir", id:"192193", isFav: false},
         {name:"Md Asief Mahir", id:"192194", isFav: false},
         {name:"Md Rijwan Hossain", id:"192195", isFav: false}
     ],
