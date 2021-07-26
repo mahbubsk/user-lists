@@ -1,6 +1,6 @@
 # Learning Redux
 
-### goto live: 
+### go to live: 
 (https://userlists.netlify.app/)
 
 ```js
